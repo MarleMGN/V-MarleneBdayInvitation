@@ -4,12 +4,33 @@ const Modal = ({ closeModal, openModal }) => {
   const [submitted, setSubmitted] = useState(false);
   const [nome, setNome] = useState("");
   const [presenca, setPresenca] = useState("");
+  const [email, setEmail] = useState("");
+  const [telefone, setTelefone] = useState("");
+  const [convidados, setConvidados] = useState("1");
+  const [mensagem, setMensagem] = useState("");
 
   function submitForm() {
     if (!nome.trim() || !presenca) {
       alert("Por favor, preencha seu nome e confirmação de presença.");
       return;
     }
+    const formUrl =
+      "https://docs.google.com/forms/d/e/1FAIpQLSemluytjNGOH9uw2XcSoGrCEVLvg_HaN4nPK0CSjiRAYt4YNA/formResponse";
+
+    const data = new FormData();
+    data.append("entry.949743175", nome); 
+    data.append("entry.1507187331", presenca);
+    data.append("entry.1979707589", email);
+
+    data.append("entry.877214974", telefone);
+    data.append("entry.679812480", convidados);
+    data.append("entry.303326317", mensagem);
+
+    fetch(formUrl, {
+      method: "POST",
+      mode: "no-cors",
+      body: data,
+    });
     setSubmitted(true);
   }
 
@@ -49,6 +70,8 @@ const Modal = ({ closeModal, openModal }) => {
                   type="email"
                   className="form__input"
                   placeholder="seu@email.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="form__group">
@@ -57,6 +80,8 @@ const Modal = ({ closeModal, openModal }) => {
                   type="tel"
                   className="form__input"
                   placeholder="(00) 00000-0000"
+                  value={telefone}
+                  onChange={(e) => setTelefone(e.target.value)}
                 />
               </div>
             </div>
@@ -76,7 +101,10 @@ const Modal = ({ closeModal, openModal }) => {
               </div>
               <div className="form__group">
                 <label className="form__label">Número de convidados</label>
-                <select className="form__select">
+                <select 
+                className="form__select"
+                value={convidados}
+                onChange={(e) => setConvidados(e.target.value)}>
                   <option value="1">Apenas eu</option>
                   <option value="2">2 pessoas</option>
                   <option value="3">3 pessoas</option>
@@ -94,6 +122,8 @@ const Modal = ({ closeModal, openModal }) => {
                 type="text"
                 className="form__input"
                 placeholder="Uma mensagem carinhosa..."
+                value={mensagem}
+                onChange={(e) => setMensagem(e.target.value)}
               />
             </div>
 
@@ -106,7 +136,8 @@ const Modal = ({ closeModal, openModal }) => {
             <div style={{ fontSize: 40, marginBottom: 16 }}>✦</div>
             <h3>Obrigado!</h3>
             <p>
-              Sua presença foi confirmada.<br />
+              Sua presença foi confirmada.
+              <br />
               Estamos ansiosos para celebrar com você.
             </p>
           </div>

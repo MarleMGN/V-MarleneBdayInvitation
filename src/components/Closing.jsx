@@ -1,4 +1,5 @@
 import React from 'react'
+import flower21 from '../assets/flower21.jpg'
 
 const Closing = ({ openModal }) => {
   return (
