@@ -1,8 +1,11 @@
 import React from "react";
+import flower13 from "../assets/flower13.png"
+import flower15 from "../assets/flower15.png"
+
 
 const Details = () => {
   return (
-    <section className="details">
+    <section id="details">
       <div className="section__inner">
         <span className="section__label" style={{ color: "var(--gold);" }}>
           Detalhes do Evento
@@ -12,7 +15,7 @@ const Details = () => {
         <div className="details__grid">
           <div className="detail__item">
             <span className="detail__label">Data</span>
-            <div className="detail__value">Junho, 2025</div>
+            <div className="detail__value">13 de Junho, 2026</div>
             <div className="detail__sub">O dia exato será confirmado em breve</div>
           </div>
           <div className="detail__item">

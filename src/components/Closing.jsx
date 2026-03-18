@@ -1,5 +1,6 @@
 import React from 'react'
-import flower21 from '../assets/flower21.jpg'
+import flower13 from "../assets/flower13.png"
+import flower15 from "../assets/flower15.png"
 
 const Closing = ({ openModal }) => {
   return (
@@ -15,6 +16,10 @@ const Closing = ({ openModal }) => {
         Por favor, confirme sua presença até <strong>31 de maio de 2025</strong>.
       </p>
       <button className="landing__rsvp-btn" onClick={openModal}>Confirmar Presença</button>
+      <div className="flower__container">
+                <img src={flower13} alt="" className="flower flower__bottom-left" style={{ height: "300px", width: "300px" }} />
+                <img src={flower15} alt="" className="flower flower__bottom-right" style={{ height: "300px", width: "300px" }} />
+              </div>
     </div>
   </section>
     </div>
