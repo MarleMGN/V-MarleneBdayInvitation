@@ -15,21 +15,29 @@ const Modal = ({ closeModal, openModal }) => {
       return;
     }
     const formUrl =
-      "https://docs.google.com/forms/d/e/1FAIpQLSemluytjNGOH9uw2XcSoGrCEVLvg_HaN4nPK0CSjiRAYt4YNA/formResponse";
+      "https://script.google.com/macros/s/AKfycbzmwtDMjI2Rgh6Zh1WheMglryPE-XW3lXAoQoTJAbQQRoEQqfXzOVIkZF6BxPdG1NwYxg/exec";
 
-    const data = new FormData();
-    data.append("entry.949743175", nome); 
-    data.append("entry.1507187331", presenca);
-    data.append("entry.1979707589", email);
+    // const data = new FormData();
+    // data.append("entry.949743175", nome);
+    // data.append("entry.1507187331", presenca);
+    // data.append("entry.1979707589", email);
 
-    data.append("entry.877214974", telefone);
-    data.append("entry.679812480", convidados);
-    data.append("entry.303326317", mensagem);
+    // data.append("entry.877214974", telefone);
+    // data.append("entry.679812480", convidados);
+    // data.append("entry.303326317", mensagem);
 
     fetch(formUrl, {
       method: "POST",
       mode: "no-cors",
-      body: data,
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        nome,
+        presenca,
+        email,
+        telefone,
+        convidados,
+        mensagem,
+      }),
     });
     setSubmitted(true);
   }
@@ -101,10 +109,11 @@ const Modal = ({ closeModal, openModal }) => {
               </div>
               <div className="form__group">
                 <label className="form__label">Número de convidados</label>
-                <select 
-                className="form__select"
-                value={convidados}
-                onChange={(e) => setConvidados(e.target.value)}>
+                <select
+                  className="form__select"
+                  value={convidados}
+                  onChange={(e) => setConvidados(e.target.value)}
+                >
                   <option value="1">Apenas eu</option>
                   <option value="2">2 pessoas</option>
                   <option value="3">3 pessoas</option>
