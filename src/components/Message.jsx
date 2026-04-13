@@ -1,11 +1,11 @@
 import React from "react";
 import gallery1 from "../assets/gallery1.jpg";
 import gallery2 from "../assets/gallery2.jpg";
-import gallery3 from "../assets/gallery3.jpg";
+import marlene_soju from "../assets/IMG_7940.jpeg"
 import gallery4 from "../assets/gallery4.JPG";
 import gallery5 from "../assets/gallery5.jpg";
-import heart_vine from "../assets/heart_vine.png";
 import flower23 from "../assets/flower_23_transparent.png";
+import gold_flower from "../assets/gold_flower_transparent.png"
 
 const Message = () => {
   return (
@@ -47,7 +47,7 @@ const Message = () => {
           </div>
           <div className="gallery__item gallery__item--face">
             <img
-              src={gallery3}
+              src={marlene_soju}
               alt=""
             />
           </div>
@@ -61,8 +61,8 @@ const Message = () => {
         <div className="divider"></div>
         <div className="flower__container-msg">
           <img src={flower23} alt="" className="flower flower__right--msg" />
-          <img src={heart_vine} alt="" className="flower heart__vine--left" />
-          <img src={heart_vine} alt="" className="flower heart__vine--right" />
+          <img src={gold_flower} alt="" className="flower gold__flower--left" />
+          <img src={gold_flower} alt="" className="flower gold__flower--right" />
         </div>
       </section>
     </div>

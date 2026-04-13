@@ -1,13 +1,10 @@
 import React from "react";
-import flower13 from "../assets/flower13.png"
-import flower15 from "../assets/flower15.png"
-
 
 const Details = () => {
   return (
     <section id="details">
       <div className="section__inner">
-        <span className="section__label" style={{ color: "var(--gold);" }}>
+        <span className="section__label" style={{ color: "var(--gold)" }}>
           Detalhes do Evento
         </span>
         <h2 className="section__title">O Encontro</h2>
@@ -16,37 +13,55 @@ const Details = () => {
           <div className="detail__item">
             <span className="detail__label">Data</span>
             <div className="detail__value">13 de Junho, 2026</div>
-            <div className="detail__sub">O dia exato será confirmado em breve</div>
           </div>
           <div className="detail__item">
-            <span className="detail__label">Horário</span>
-            <div className="detail__value">A partir das 13h</div>
-            <div className="detail__sub">Tarde e noite de celebração</div>
+            <span className="detail__label">Abertura com missa</span>
+            <div className="detail__value">
+              Capela Imaculada Conceição - 11:00 hrs
+            </div>
+            <div className="detail__sub">
+              Av. Ana Jacinta, 301 - Vila Santa Maria de Nazareth, Anápolis -
+              GO, 75113-355
+            </div>
           </div>
           <div className="detail__item">
-            <span className="detail__label">Local</span>
-            <div className="detail__value">A ser confirmado</div>
-            <div className="detail__sub">Brasil — endereço completo em breve</div>
+            <span className="detail__label">Celebração</span>
+            <div className="detail__value">
+              Chácara do Italiano - A partir das 12:30 hrs
+            </div>
+            <div className="detail__sub">
+              BR-414 - Jardin Promissão, Anápolis - GO, 75073-815
+            </div>
           </div>
           <div className="detail__item">
-            <span className="detail__label">Traje</span>
-            <div className="detail__value">Esporte fino</div>
-            <div className="detail__sub">Elegante e confortável</div>
+            <span className="detail__label">Nota Importante</span>
+            <div className="detail__value">
+              Apresentar convite individual no local do evento
+            </div>
+            <div className="detail__sub">Traje: esporte fino</div>
           </div>
         </div>
-        <div className="map__placeholder">
-          <svg
-            width="32"
-            height="32"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1"
-          >
-            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-            <circle cx="12" cy="9" r="2.5" />
-          </svg>
-          <span>Mapa será adicionado em breve</span>
+        <div className="map__container">
+          <iframe
+            title="missa"
+            src="https://www.google.com/maps?q=Av.+Ana+Jacinta,+301+Vila+Santa+Maria+de+Nazareth+Anápolis+GO&output=embed"
+            width="100%"
+            height="300"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+          />
+            <span>Capela Imaculada Conceição</span>
+          <iframe
+            title="celebracao"
+            src="https://www.google.com/maps?q=Chácara+do+Italiano+BR-414+Jardim+Promissão+Anápolis+GO&output=embed"
+            width="100%"
+            height="300"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+          />
+          <span>Chácara do Italiano</span>
         </div>
       </div>
     </section>

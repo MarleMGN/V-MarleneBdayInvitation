@@ -23,7 +23,7 @@ const App = () => {
 
   return (
     <div>
-      <button class="rsvp__float" onClick={openModal}>RSVP</button>
+      <button className="rsvp__float" onClick={openModal}>RSVP</button>
       <Home openModal={openModal} />
       <Modal openModal={modalOpen} closeModal={closeModal} />
     </div>

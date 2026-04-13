@@ -114,13 +114,13 @@
       letter-spacing: 0.4em;
       color: var(--gold);
       text-transform: uppercase;
-      margin-bottom: 32px;
+      margin-bottom: 20px;
       opacity: 0;
       animation: fadeUp 1s ease 0.2s forwards;
       position: relative;
     }
 
-    .landing__number {
+    .landing__anos-number {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(120px, 22vw, 220px);
       font-weight: 300;
@@ -129,8 +129,14 @@
       color: var(--gold-light);
       letter-spacing: -0.02em;
       opacity: 0;
-      animation: fadeUp 1.2s ease 0.4s forwards;
-      position: relative;
+      animation: fadeUp 1.2s ease 1.9s forwards;
+    }
+
+    .landing__anos-container {
+      position: absolute;
+      bottom: 60px;
+      right: 60px;
+      text-align: center;
     }
 
     .landing__number::after {
@@ -153,7 +159,7 @@
       letter-spacing: 0.25em;
       margin-top: 8px;
       opacity: 0;
-      animation: fadeUp 1s ease 0.6s forwards;
+      animation: fadeUp 1s ease 1.9s forwards;
       position: relative;
     }
 
@@ -186,35 +192,12 @@
       opacity: 0;
     }
 
-    .landing__title,
-    .landing__number,
-    .landing__anos,
-    .divider,
-    .landing__name,
-    .landing__subtitle,
-    .landing__img--wrapper,
-    .landing__date,
-    .landing__rsvp-btn {
-      position: relative;
-      z-index: 1;
-    }
-
-    .landing__img--border {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: fill;
-      pointer-events: none;
-      z-index: 2;
-      opacity: 0;
-      animation: fadeUp 1s ease 1.8s forwards;
-    }
-
     .landing__img {
       display: block;
       height: 80vh;
       width: auto;
+      opacity: 0;
+      animation: fadeUp 1s ease 1.3s forwards;
     }
 
     .landing__subtitle {
@@ -401,17 +384,19 @@
       transform: scaleX(-1)
     }
 
-    .heart__vine--left {
-      bottom: 200px;
+    .gold__flower--left {
+      bottom: 50px;
       left: 12px;
-      width: 500px;
+      width: 300px;
+      opacity: 0.6;
     }
 
-    .heart__vine--right {
-      bottom: 200px;
+    .gold__flower--right {
+      bottom: 50px;
       right: 12px;
-      width: 500px;
+      width: 300px;
       transform: scaleX(-1);
+      opacity: 0.6;
     }
 
     /* ── Details section ── */
@@ -432,10 +417,10 @@
 
     .details__grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 48px;
       margin-top: 64px;
-      text-align: left;
+      text-align: center;
     }
 
     .detail__item {
@@ -468,7 +453,7 @@
     }
 
     /* ── Map placeholder ── */
-    .map__placeholder {
+    .map__container {
       margin-top: 64px;
       height: 280px;
       border: 1px solid rgba(201,168,76,0.2);
@@ -482,10 +467,6 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
       background: rgba(201,168,76,0.03);
-    }
-
-    .map__placeholder svg {
-      opacity: 0.3;
     }
 
     /* ── RSVP floating button ── */
@@ -700,6 +681,13 @@
       margin-bottom: 24px;
     }
 
+    .flower__bottom-left {
+      bottom: 10px;
+      left: 10px;
+      opacity: 0;
+      animation: fadeUp 1s ease 1.9s forwards;
+    }
+
     .section__inner .landing__rsvp-btn {
       margin-top: 48px;
     }
@@ -743,6 +731,10 @@
 
   .landing__img {
     height: 65vh;
+  }
+
+  .section__inner .flower__container {
+    display: none;
   }
 
   .flower__left,
@@ -909,10 +901,32 @@
   }
 }
 
+@media (max-width: 768px) and (min-width: 481px) {
+  .gallery__item:last-child {
+    grid-column: 1 / -1;
+    width: calc(50% - 4px);
+    margin: 0 auto;
+  }
+}
+
 /* SMALL MOBILE */
 @media (max-width: 480px) {
   .landing__img--wrapper {
     padding: 30px 40px 30px 36px;
+  }
+
+  .gold__flower--left {    
+    display: none;
+  }
+  
+  .gold__flower--right {    
+    display: none;
+  }
+
+  .landing__anos-container {
+    position: static;
+    text-align: center;
+    margin-top: 16px;
   }
 
   .landing__img {
