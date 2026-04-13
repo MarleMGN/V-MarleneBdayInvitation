@@ -17,10 +17,6 @@ const App = () => {
     document.body.style.overflow = "";
   }
 
-  function handleOverlayClick(e) {
-    if (e.target === e.currentTarget) closeModal();
-  }
-
   return (
     <div>
       <button className="rsvp__float" onClick={openModal}>RSVP</button>
