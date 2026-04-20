@@ -10,32 +10,33 @@ const Modal = ({ closeModal, openModal }) => {
   const [mensagem, setMensagem] = useState("");
 
   function submitForm() {
-  if (!nome.trim() || !presenca) {
-    alert("Por favor, preencha seu nome e confirmação de presença.");
-    return;
+    console.log("submitting");
+    if (!nome.trim() || !presenca) {
+      alert("Por favor, preencha seu nome e confirmação de presença.");
+      return;
+    }
+
+    const formUrl =
+      "https://script.google.com/macros/s/AKfycbzmwtDMjI2Rgh6Zh1WheMglryPE-XW3lXAoQoTJAbQQRoEQqfXzOVIkZF6BxPdG1NwYxg/exec";
+
+    fetch(formUrl, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams({
+        nome: nome,
+        email: email,
+        telefone: telefone,
+        presenca: presenca,
+        convidados: convidados,
+        mensagem: mensagem,
+      }),
+    });
+
+    setSubmitted(true);
   }
-
-  const formUrl =
-    "https://script.google.com/macros/s/AKfycbzmwtDMjI2Rgh6Zh1WheMglryPE-XW3lXAoQoTJAbQQRoEQqfXzOVIkZF6BxPdG1NwYxg/exec";
-
-  fetch(formUrl, {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: new URLSearchParams({
-      "entry.949743175": nome,
-      "entry.1979707589": email,
-      "entry.877214974": telefone,
-      "entry.1507187331": presenca,
-      "entry.679812480": convidados,
-      "entry.303326317": mensagem,
-    }),
-  });
-
-  setSubmitted(true);
-}
 
   return (
     <div
