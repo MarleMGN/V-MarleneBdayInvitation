@@ -26,9 +26,6 @@ const Modal = ({ closeModal, openModal }) => {
     fetch(formUrl, {
       method: "POST",
       mode: "no-cors",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
       body: new URLSearchParams({
         nome: nome,
         email: email,
