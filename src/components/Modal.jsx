@@ -10,20 +10,13 @@ const Modal = ({ closeModal, openModal }) => {
   const [mensagem, setMensagem] = useState("");
 
   function submitForm() {
-    console.log("submitting");
-    console.log("nome:", nome);
-    console.log("presenca:", presenca);
     if (!nome.trim() || !presenca) {
       alert("Por favor, preencha seu nome e confirmação de presença.");
       return;
     }
 
-    console.log("past validation");
-
     const formUrl =
       "https://script.google.com/macros/s/AKfycbzmwtDMjI2Rgh6Zh1WheMglryPE-XW3lXAoQoTJAbQQRoEQqfXzOVIkZF6BxPdG1NwYxg/exec";
-
-      console.log("about to fetch");
 
     const formData = new FormData();
     formData.append("nome", nome);
