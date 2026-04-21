@@ -11,10 +11,14 @@ const Modal = ({ closeModal, openModal }) => {
 
   function submitForm() {
     console.log("submitting");
+    console.log("nome:", nome);
+    console.log("presenca:", presenca);
     if (!nome.trim() || !presenca) {
       alert("Por favor, preencha seu nome e confirmação de presença.");
       return;
     }
+
+    console.log("past validation");
 
     const formUrl =
       "https://script.google.com/macros/s/AKfycbzmwtDMjI2Rgh6Zh1WheMglryPE-XW3lXAoQoTJAbQQRoEQqfXzOVIkZF6BxPdG1NwYxg/exec";
@@ -57,8 +61,9 @@ const Modal = ({ closeModal, openModal }) => {
             </p>
 
             <div className="form__group">
-              <label className="form__label">Nome completo</label>
+              <label className="form__label" htmlFor="nome" >Nome completo</label>
               <input
+                id="nome"
                 type="text"
                 className="form__input"
                 placeholder="Seu nome"
@@ -69,8 +74,9 @@ const Modal = ({ closeModal, openModal }) => {
 
             <div className="form__row">
               <div className="form__group">
-                <label className="form__label">E-mail</label>
+                <label className="form__label" htmlFor="email" >E-mail</label>
                 <input
+                  id="email"
                   type="email"
                   className="form__input"
                   placeholder="seu@email.com"
@@ -79,8 +85,9 @@ const Modal = ({ closeModal, openModal }) => {
                 />
               </div>
               <div className="form__group">
-                <label className="form__label">Telefone</label>
+                <label className="form__label" htmlFor="telefone" >Telefone</label>
                 <input
+                  id="telefone"
                   type="tel"
                   className="form__input"
                   placeholder="(00) 00000-0000"
@@ -92,8 +99,9 @@ const Modal = ({ closeModal, openModal }) => {
 
             <div className="form__row">
               <div className="form__group">
-                <label className="form__label">Confirmação</label>
+                <label className="form__label" htmlFor="confirmacao" >Confirmação</label>
                 <select
+                  id="confirmacao"
                   className="form__select"
                   value={presenca}
                   onChange={(e) => setPresenca(e.target.value)}
@@ -104,8 +112,9 @@ const Modal = ({ closeModal, openModal }) => {
                 </select>
               </div>
               <div className="form__group">
-                <label className="form__label">Número de convidados</label>
+                <label className="form__label" htmlFor="convidados" >Número de convidados</label>
                 <select
+                  id="convidados"
                   className="form__select"
                   value={convidados}
                   onChange={(e) => setConvidados(e.target.value)}
@@ -120,10 +129,11 @@ const Modal = ({ closeModal, openModal }) => {
             </div>
 
             <div className="form__group">
-              <label className="form__label">
+              <label className="form__label" htmlFor="mensagem" >
                 Mensagem para a aniversariante (opcional)
               </label>
               <input
+                id="mensagem"
                 type="text"
                 className="form__input"
                 placeholder="Uma mensagem carinhosa..."
