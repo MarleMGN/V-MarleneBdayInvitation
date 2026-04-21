@@ -23,6 +23,8 @@ const Modal = ({ closeModal, openModal }) => {
     const formUrl =
       "https://script.google.com/macros/s/AKfycbzmwtDMjI2Rgh6Zh1WheMglryPE-XW3lXAoQoTJAbQQRoEQqfXzOVIkZF6BxPdG1NwYxg/exec";
 
+      console.log("about to fetch");
+
     fetch(formUrl, {
       method: "POST",
       mode: "no-cors",
