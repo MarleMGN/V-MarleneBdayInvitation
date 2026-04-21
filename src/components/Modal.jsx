@@ -25,17 +25,18 @@ const Modal = ({ closeModal, openModal }) => {
 
       console.log("about to fetch");
 
+    const formData = new FormData();
+    formData.append("nome", nome);
+    formData.append("email", email);
+    formData.append("telefone", telefone);
+    formData.append("presenca", presenca);
+    formData.append("convidados", convidados);
+    formData.append("mensagem", mensagem);
+
     fetch(formUrl, {
       method: "POST",
       mode: "no-cors",
-      body: new URLSearchParams({
-        nome: nome,
-        email: email,
-        telefone: telefone,
-        presenca: presenca,
-        convidados: convidados,
-        mensagem: mensagem,
-      }),
+      body: formData,
     });
 
     setSubmitted(true);
